@@ -2,7 +2,7 @@
   "name": "md_editor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "watchify -v -t babelify javascripts/app.js -o javascripts/bundle.js"
   },
