@@ -1,0 +1,27 @@
+{
+  "name": "md_editor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify -v -t babelify javascripts/app.js -o javascripts/bundle.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.11.5",
+    "brace": "^0.8.0",
+    "marked": "^0.3.6",
+    "md2react": "^0.8.8",
+    "react": "^15.3.1",
+    "react-ace": "^3.5.0",
+    "react-dom": "^15.3.1"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "watchify": "^3.7.0"
+  }
+}
