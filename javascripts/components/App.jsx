@@ -1,7 +1,7 @@
 import React from "react";
 
-import Editor from "./Editor.jsx"
-import Preview from "./Preview.jsx"
+import Editor from "./Editor.jsx";
+import Preview from "./Preview.jsx";
 
 export default class App extends React.Component{
 
@@ -14,6 +14,7 @@ export default class App extends React.Component{
 	}
 
 	render(){
+		
 		return(
 			<div className="clearfix" id="app">
 				<Editor
@@ -23,8 +24,10 @@ export default class App extends React.Component{
 				<Preview
 					data={this.state.value}
 				/>
+				<webview ref="webview"/>
 			</div>
 		);
+	
 	}
 
 	_edit(text){
