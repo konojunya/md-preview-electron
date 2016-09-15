@@ -24571,11 +24571,17 @@ module.exports =
 		}
 
 		_createClass(Preview, [{
+			key: "componentDidUpdate",
+			value: function componentDidUpdate() {
+				var ul = this.refs.preview;
+				ul.scrollTop = ul.scrollHeight;
+			}
+		}, {
 			key: "render",
 			value: function render() {
 				return _react2.default.createElement(
 					"div",
-					{ id: "preview" },
+					{ id: "preview", ref: "preview" },
 					_react2.default.createElement("div", { dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.props.data) } }),
 					_react2.default.createElement(
 						"button",

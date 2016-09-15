@@ -7,9 +7,14 @@ export default class Preview extends React.Component{
 		super(props);
 	}
 
+	componentDidUpdate(){
+		var ul = this.refs.preview;
+		ul.scrollTop = ul.scrollHeight;
+	}
+
 	render(){
 		return(
-			<div id="preview">
+			<div id="preview" ref="preview">
 				<div dangerouslySetInnerHTML={{__html: marked(this.props.data)}}></div>
 				<button className="menu-btn" onClick={this._exportFile.bind(this)}>
 					+
