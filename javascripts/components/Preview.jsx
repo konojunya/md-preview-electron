@@ -9,8 +9,8 @@ export default class Preview extends React.Component{
 
 	render(){
 		return(
-			<div>
-				<div id="preview" dangerouslySetInnerHTML={{__html: marked(this.props.data)}}></div>
+			<div id="preview">
+				<div dangerouslySetInnerHTML={{__html: marked(this.props.data)}}></div>
 				<button className="menu-btn" onClick={this._exportFile.bind(this)}>
 					+
 				</button>
