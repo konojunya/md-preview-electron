@@ -19,5 +19,10 @@ module.exports = {
 			}
 		]
 	},
+	externals: [
+    'electron',
+    'fs',
+    'child_process'
+  ],
 	debug: true
 };
