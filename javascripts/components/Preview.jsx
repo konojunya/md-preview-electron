@@ -1,5 +1,7 @@
 import React from "react";
 import marked from "marked";
+import { remote } from "electron";
+import fs from "fs"
 
 export default class Preview extends React.Component{
 
@@ -24,8 +26,11 @@ export default class Preview extends React.Component{
 	}
 
 	_exportFile(){
-		var file = "File";
-		console.log(`Export ${file}`)
+		remote.dialog.showSaveDialog({properties: ['openFile', 'openDirectory', 'multiSelections']},(filepath)=>{
+			fs.writeFile(filepath,this.props.data,(err)=>{
+				if (err) throw err
+			})
+		})
 	}
 
 }

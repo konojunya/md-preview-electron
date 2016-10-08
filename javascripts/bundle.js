@@ -24553,6 +24553,12 @@ module.exports =
 
 	var _marked2 = _interopRequireDefault(_marked);
 
+	var _electron = __webpack_require__(188);
+
+	var _fs = __webpack_require__(189);
+
+	var _fs2 = _interopRequireDefault(_fs);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24593,8 +24599,13 @@ module.exports =
 		}, {
 			key: "_exportFile",
 			value: function _exportFile() {
-				var file = "File";
-				console.log("Export " + file);
+				var _this2 = this;
+
+				_electron.remote.dialog.showSaveDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }, function (filepath) {
+					_fs2.default.writeFile(filepath, _this2.props.data, function (err) {
+						if (err) throw err;
+					});
+				});
 			}
 		}]);
 
@@ -25792,6 +25803,18 @@ module.exports =
 	  return this || (typeof window !== 'undefined' ? window : global);
 	}());
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 188 */
+/***/ function(module, exports) {
+
+	module.exports = require("electron");
+
+/***/ },
+/* 189 */
+/***/ function(module, exports) {
+
+	module.exports = require("fs");
 
 /***/ }
 /******/ ]);

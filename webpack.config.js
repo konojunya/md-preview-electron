@@ -21,8 +21,7 @@ module.exports = {
 	},
 	externals: [
     'electron',
-    'fs',
-    'child_process'
+    'fs'
   ],
 	debug: true
 };
