@@ -26,10 +26,17 @@ export default class Preview extends React.Component{
 	}
 
 	_exportFile(){
-		remote.dialog.showSaveDialog({properties: ['openFile', 'openDirectory', 'multiSelections']},(filepath)=>{
-			fs.writeFile(filepath,this.props.data,(err)=>{
-				if (err) throw err
-			})
+		remote.dialog.showSaveDialog({
+      type: 'info',
+      buttons: ['OK', 'Cancel'],
+      detail: '本当に保存しますか？',
+      properties: ['openFile', 'multiSelections']
+    },(filepath)=>{
+    	if(filepath){
+				fs.writeFile(filepath,this.props.data,(err)=>{
+					if (err) throw err
+				})
+			}
 		})
 	}
 

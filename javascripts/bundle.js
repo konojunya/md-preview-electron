@@ -24601,10 +24601,17 @@ module.exports =
 			value: function _exportFile() {
 				var _this2 = this;
 
-				_electron.remote.dialog.showSaveDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }, function (filepath) {
-					_fs2.default.writeFile(filepath, _this2.props.data, function (err) {
-						if (err) throw err;
-					});
+				_electron.remote.dialog.showSaveDialog({
+					type: 'info',
+					buttons: ['OK', 'Cancel'],
+					detail: '本当に保存しますか？',
+					properties: ['openFile', 'multiSelections']
+				}, function (filepath) {
+					if (filepath) {
+						_fs2.default.writeFile(filepath, _this2.props.data, function (err) {
+							if (err) throw err;
+						});
+					}
 				});
 			}
 		}]);
